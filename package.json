@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@lion/button": "^0.18.1",
-    "@lion/core": "^0.24.0"
+    "@lion/core": "^0.24.0",
+    "css-paint-polyfill": "^3.4.0"
   }
 }

@@ -1,0 +1,40 @@
+<script>
+  CSS.registerProperty({
+    name: "--animated-color",
+    syntax: "<color>",
+    initialValue: "black",
+    inherits: false,
+  });
+</script>
+
+<style>
+  :root {
+    --color-a: red;
+    --color-b: blue;
+  }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .box {
+    width: 30vmin;
+    height: 30vmin;
+    animation: 3s change infinite alternate linear;
+    background-color: var(--animated-color);
+  }
+  @keyframes change {
+    from {
+      --animated-color: var(--color-a);
+    }
+    to {
+      --animated-color: var(--color-b);
+    }
+  }
+</style>
+<div class="box"></div>

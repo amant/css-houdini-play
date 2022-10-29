@@ -1,0 +1,24 @@
+<lion-button id="my-button">Prr Lion</lion-button>
+
+<script type="module">
+  import "@lion/button/define";
+</script>
+
+<style>
+    #my-button {
+        width: 96px;
+        height: 96px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 19px;
+        background-image: paint(circle);
+        --circle-color: orange;
+    }
+</style>
+
+<script type="module">
+  import 'css-paint-polyfill';
+  CSS.paintWorklet.addModule("js/circle-worklet.js");
+</script>

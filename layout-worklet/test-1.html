@@ -1,0 +1,68 @@
+<style>
+  section {
+    width: 200px;
+    height: 1000px;
+    outline: 1px solid black;
+    display: layout(zipper);
+  }
+
+  div {
+    width: 100px;
+    height: 100px;
+    background-color: #525199;
+    outline: 1px solid black;
+  }
+</style>
+
+<section>
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+  <div>G</div>
+</section>
+
+<script language="javascript">
+  registerLayout(
+    "zipper",
+    class {
+      // defines box fits into a layout context
+      async intrinsicSizes() {}
+      async layout(children, edges, constraintSpace) {
+        const childFragments = [];
+
+        let count = 0,
+          index = 0;
+        for (const child of children) {
+          const childFragment = await child.layoutNextFragment();
+          childFragment.blockOffset = count + childFragment.blockOffset;
+
+          if (index % 2 !== 0) {
+            childFragment.inlineOffset = constraintSpace.fixedInlineSize - 100;
+            console.log("child", child, index);
+          }
+
+          count += 120;
+          index++;
+          childFragments.push(childFragment);
+        }
+
+        return { childFragments };
+      }
+    }
+  );
+</script>
+
+<script>
+  function getLayoutWorkletScript(sel) {
+    const scriptEl = document.querySelector(sel);
+    const blob = new Blob([scriptEl.textContent], { type: "text/javascript" });
+    return URL.createObjectURL(blob);
+  }
+
+  CSS.layoutWorklet.addModule(
+    getLayoutWorkletScript("script[language='javascript']")
+  );
+</script>
