@@ -1,3 +1,5 @@
+const wasmHolder = {};
+
 const actionInternal = (wasm, ctx, xSize, ySize) => {
   instanceImport.helper.setCanvas(ctx);
   wasm.drawfractal(xSize, ySize);
