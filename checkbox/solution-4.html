@@ -1,0 +1,37 @@
+<style>
+  #my-checkbox {
+    width: 64px;
+    height: 64px;
+    appearance: none;
+    background-color: white;
+    outline: 1px solid black;
+    transition: --checkbox-tick-color 500ms, background-color 500ms;
+    background: paint(my-checkbox);
+  }
+  
+  #my-checkbox:hover {
+    --checkbox-tick-color: rgba(255, 255, 255, 0.25);
+    background-color: grey;
+  }
+
+  #my-checkbox:checked {
+    --checkbox-tick-color: yellow;
+    background-color: red;
+  }
+
+  #my-checkbox:checked {
+    --checkbox-tick-color: yellow;
+    background-color: red;
+  }
+  </style>
+</head>
+<body>
+<div>
+  <label for="my-checkbox">
+    <input type="checkbox" id="my-checkbox" /> I am a checkbox
+  </label>
+</div>
+
+<script>
+  CSS.paintWorklet.addModule("./js/mycheckbox-worklet.js");
+</script>

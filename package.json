@@ -1,0 +1,16 @@
+{
+  "name": "css-houdini-play",
+  "version": "1.0.0",
+  "description": "CSS Houdini Play",
+  "scripts": {
+    "start": "web-dev-server"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@web/dev-server": "^0.1.35"
+  },
+  "dependencies": {
+    "@lion/button": "^0.18.1",
+    "@lion/core": "^0.24.0"
+  }
+}

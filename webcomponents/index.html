@@ -1,0 +1,25 @@
+<lion-button id="my-button">Lion Button</lion-button>
+
+<script type="module">
+  import "@lion/button/define";
+</script>
+
+<style>
+  #my-button {
+    --lion-button-radius: 4 10 4 10;
+    --lion-button-fill-color: #525199;
+    --lion-button-stroke-color: #ff6200;
+    --lion-button-stroke-weight: 4;
+    background: paint(angled-corners);
+    color: white;
+  }
+
+  #my-button:active {
+    --lion-button-fill-color: #ff6200;
+    --lion-button-stroke-color: #525199;
+  }
+</style>
+
+<script>
+  CSS.paintWorklet.addModule("./paint-worklet.js");
+</script>

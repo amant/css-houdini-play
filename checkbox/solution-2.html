@@ -1,0 +1,29 @@
+<!-- https://codepen.io/tutsplus/pen/bgqYJz -->
+<style>
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    margin: -2px 10px 0 0;
+    vertical-align: middle;
+    background: url(imgs/check_radio_sheet.png) left top no-repeat;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"]:checked + label span {
+    background: url(imgs/check_radio_sheet.png) -19px top no-repeat;
+  }
+</style>
+
+<div>
+  <input type="checkbox" id="c1" />
+  <label for="c1"><span></span>One</label>
+</div>
+<div>
+  <input type="checkbox" id="c2" />
+  <label for="c2"><span></span>Two</label>
+</div>
