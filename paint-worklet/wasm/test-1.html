@@ -1,0 +1,12 @@
+<style>
+  .fractal-wasm {
+    background: paint(fractal-paint-wasm);
+    height: 250px;
+  }
+</style>
+
+<div class="fractal-wasm">Hello World</div>
+
+<script>
+  CSS.paintWorklet.addModule("js/fractal-wasm-worklet.js");
+</script>
