@@ -1,40 +1,44 @@
 <script>
+  // define custom property with type and default value
   CSS.registerProperty({
-    name: "--animated-color",
-    syntax: "<color>",
-    initialValue: "black",
+    name: '--box-color',
+    syntax: '<color>',
+    initialValue: 'rgb(82, 81, 153)',
+    inherits: false,
+  });
+
+  CSS.registerProperty({
+    name: '--box-gradient-position',
+    syntax: '<percentage>',
+    initialValue: '60%',
     inherits: false,
   });
 </script>
 
 <style>
-  :root {
-    --color-a: red;
-    --color-b: blue;
-  }
-  html,
   body {
-    margin: 0;
-    padding: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
   .box {
-    width: 30vmin;
-    height: 30vmin;
-    animation: 3s change infinite alternate linear;
-    background-color: var(--animated-color);
+    width: 20rem;
+    height: 20rem;
+    /* Gradient tilted 45 degrees, starting white at 0% and finishing --box-color with --box-gradient-position */
+    background: linear-gradient(
+      45deg,
+      rgb(255, 255, 255) 0%,
+      var(--box-color) var(--box-gradient-position)
+    );
+    transition: --box-color 0.5s ease, --box-gradient-position 1s 0.5s ease;
   }
-  @keyframes change {
-    from {
-      --animated-color: var(--color-a);
-    }
-    to {
-      --animated-color: var(--color-b);
-    }
+
+  .box:hover {
+    --box-color: rgb(255, 98, 0);
+    --box-gradient-position: 0%;
   }
 </style>
 <div class="box"></div>
