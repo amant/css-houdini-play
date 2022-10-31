@@ -42,3 +42,15 @@
   }
 </style>
 <div class="box"></div>
+
+
+
+<script>
+  let el = document.querySelector('.box');
+  
+  // el.style.width = '500px';
+  el.attributeStyleMap.set('width', CSS.px(800));
+  el.attributeStyleMap.set('height', CSS.px(800));
+  
+  console.log('box element width', el.computedStyleMap().get('width'));
+</script>
